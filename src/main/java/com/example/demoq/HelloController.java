@@ -121,8 +121,32 @@ public class HelloController {
         Y.add(47.0);
 
         cells = new ArrayList<>();
+        int Xcoor, Ycoor;
 
+        for (int i = 1; i <= 100; i++)
+        {
+            if (i % 10 == 0)                        //Y can directly access arraylist
+                Ycoor = (i / 10) - 1;
+            else
+                Ycoor = i / 10;
+
+            if ((i <= 10) || (i >= 21 && i <= 30) || (i >= 41 && i <= 50) || (i >= 61 && i <= 70) || (i >= 81 && i <= 90))
+            {
+                Xcoor = i % 10;
+                Xcoor--;
+                if (Xcoor == -1)
+                    Xcoor = 9;
+            }
+            else
+            {
+                Xcoor = 10 - i % 10;
+                if (Xcoor == 10)
+                    Xcoor = 0;
+            }
+            cells.add(new Cell(i, X.get(Xcoor), Y.get(Ycoor)));
+        }
     }
+
     public void playDice(MouseEvent mouseEvent) {
         i++;
         game.rollDice();
