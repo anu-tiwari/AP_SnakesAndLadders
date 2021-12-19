@@ -1,6 +1,5 @@
 package com.example.demoq;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -80,8 +79,8 @@ public class HelloController {
     void initialize() {
         //locval.setText("Hey");
         //dice_img = new ImageView(new Image(getClass().getResource("one_dice.jpg"), true));
-        Image img = new Image(new File("one_dice.jpg").toURI().toString(), true);
-        System.out.println(getClass().getResource("one_dice.jpg"));
+//        Image img = new Image(new File("images/one_dice.jpg").toURI().toString(), true);
+//        System.out.println(getClass().getResource("images/one_dice.jpg"));
 //        dice_img.setImage(img);
         //<ImageView fx:id="dice_img" fitHeight="85.0" fitWidth="81.0" layoutX="243.0" layoutY="713.0" preserveRatio="true" style="-fx-background-radius: 5px" />
         i=0;

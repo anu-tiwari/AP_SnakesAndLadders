@@ -51,7 +51,7 @@
         </Rectangle>
         <ImageView fx:id="board" fitHeight="665.0" fitWidth="457.0" layoutX="58.0" layoutY="32.0" preserveRatio="true">
             <image>
-                <Image url="@board_pic.jpeg" />
+                <Image url="@../images/board_pic.jpeg" />
             </image>
         </ImageView>
         <Label fx:id="locval" layoutX="265.0" layoutY="800.0" text="Qwerty" />
@@ -75,7 +75,7 @@
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#844ed3" height="9.0" layoutX="319.0" layoutY="772.0" stroke="BLACK" strokeType="INSIDE" width="94.0" />
         <ImageView fx:id="dice_img" fitHeight="85.0" fitWidth="81.0" layoutX="243.0" layoutY="713.0" style="-fx-background-radius: 5px">
             <image>
-                <Image url="@six_dice.png" />
+                <Image url="@../images/six_dice.png" />
             </image>
         </ImageView>
         <Rectangle arcHeight="10.0" arcWidth="10.0" fill="TRANSPARENT" height="88.0" layoutX="241.0" layoutY="712.0" stroke="#2626b9" strokeType="INSIDE" strokeWidth="6.0" width="85.0" />
