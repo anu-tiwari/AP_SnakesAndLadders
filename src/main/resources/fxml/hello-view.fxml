@@ -65,14 +65,14 @@
                 <DropShadow />
             </effect>
         </Button>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#443ebc" height="50.0" layoutX="155.0" layoutY="731.0" stroke="WHITE" strokeType="INSIDE" width="98.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#443ebc" height="50.0" layoutX="319.0" layoutY="731.0" stroke="WHITE" strokeType="INSIDE" width="98.0" />
-        <Label layoutX="180.0" layoutY="747.0" text="Player 1" textFill="WHITE" />
-        <Label layoutX="344.0" layoutY="747.0" text="Player 2" textFill="WHITE" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" layoutX="155.0" layoutY="731.0" stroke="BLACK" strokeType="INSIDE" width="94.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" layoutX="317.0" layoutY="731.0" stroke="BLACK" strokeType="INSIDE" width="94.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#844ed3" height="9.0" layoutX="157.0" layoutY="772.0" stroke="BLACK" strokeType="INSIDE" width="94.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#844ed3" height="9.0" layoutX="319.0" layoutY="772.0" stroke="BLACK" strokeType="INSIDE" width="94.0" />
+        <Rectangle fx:id="p1_label" arcHeight="5.0" arcWidth="5.0" fill="#443ebc" height="50.0" layoutX="155.0" layoutY="731.0" stroke="WHITE" strokeType="INSIDE" width="98.0" />
+        <Rectangle fx:id="p2_label" arcHeight="5.0" arcWidth="5.0" fill="#443ebc" height="50.0" layoutX="319.0" layoutY="731.0" stroke="WHITE" strokeType="INSIDE" width="98.0" />
+        <Label fx:id="P1_disname" layoutX="180.0" layoutY="747.0" text="Player 1" textFill="WHITE" />
+        <Label fx:id="P2_disname" layoutX="344.0" layoutY="747.0" text="Player 2" textFill="WHITE" />
+        <Rectangle fx:id="p1_top" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" layoutX="155.0" layoutY="731.0" stroke="BLACK" strokeType="INSIDE" width="94.0" />
+        <Rectangle fx:id="p2_top" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" layoutX="317.0" layoutY="731.0" stroke="BLACK" strokeType="INSIDE" width="94.0" />
+        <Rectangle fx:id="p1_bottom" arcHeight="5.0" arcWidth="5.0" fill="#844ed3" height="9.0" layoutX="157.0" layoutY="772.0" stroke="BLACK" strokeType="INSIDE" width="94.0" />
+        <Rectangle fx:id="p2_bottom" arcHeight="5.0" arcWidth="5.0" fill="#844ed3" height="9.0" layoutX="319.0" layoutY="772.0" stroke="BLACK" strokeType="INSIDE" width="94.0" />
         <ImageView fx:id="dice_img" fitHeight="85.0" fitWidth="81.0" layoutX="243.0" layoutY="713.0" style="-fx-background-radius: 5px">
             <image>
                 <Image url="@../images/six_dice.png" />
@@ -80,8 +80,8 @@
         </ImageView>
         <Rectangle arcHeight="10.0" arcWidth="10.0" fill="TRANSPARENT" height="88.0" layoutX="241.0" layoutY="712.0" stroke="#2626b9" strokeType="INSIDE" strokeWidth="6.0" width="85.0" />
         <Button fx:id="dice" layoutX="243.0" layoutY="713.0" mnemonicParsing="false" onMouseClicked="#playDice" prefHeight="85.0" prefWidth="80.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" textFill="BLACK" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="65.0" layoutX="101.0" layoutY="724.0" stroke="#e4da19" strokeType="INSIDE" strokeWidth="5.0" width="65.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="65.0" layoutX="405.0" layoutY="724.0" stroke="#e4da19" strokeType="INSIDE" strokeWidth="5.0" width="65.0" />
+        <Rectangle fx:id="p1_bg" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="65.0" layoutX="101.0" layoutY="724.0" stroke="#e4da19" strokeType="INSIDE" strokeWidth="5.0" width="65.0" />
+        <Rectangle fx:id="p2_bg" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="65.0" layoutX="405.0" layoutY="724.0" stroke="#e4da19" strokeType="INSIDE" strokeWidth="5.0" width="65.0" />
         <Button layoutX="121.0" layoutY="743.0" mnemonicParsing="false" style="-fx-background-color: #0f1fae; -fx-background-radius: 5em; -fx-min-width: 25px; -fx-max-width: 25px; -fx-min-height: 25px; -fx-max-height: 25px;" text="Button">
             <effect>
                 <DropShadow />

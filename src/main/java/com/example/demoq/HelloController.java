@@ -11,8 +11,39 @@ import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 
 public class HelloController {
+
+    @FXML
+    public Rectangle p1_label;
+
+    @FXML
+    public Rectangle p2_label;
+
+    @FXML
+    public Rectangle p1_top;
+
+    @FXML
+    public Rectangle p2_top;
+
+    @FXML
+    public Rectangle p1_bottom;
+
+    @FXML
+    public Rectangle p2_bottom;
+
+    @FXML
+    public Rectangle p2_bg;
+
+    @FXML
+    public Rectangle p1_bg;
+
+    @FXML
+    public Label P1_disname;
+
+    @FXML
+    public Label P2_disname;
 
     @FXML
     private ResourceBundle resources;
@@ -75,6 +106,7 @@ public class HelloController {
         y = event.getSceneY();
         System.out.println("X: "+x+"Y: "+y);
     }
+
     @FXML
     void initialize() {
         //locval.setText("Hey");
@@ -85,7 +117,7 @@ public class HelloController {
         //<ImageView fx:id="dice_img" fitHeight="85.0" fitWidth="81.0" layoutX="243.0" layoutY="713.0" preserveRatio="true" style="-fx-background-radius: 5px" />
         i=0;
         initialise_cells();
-        game = new Game(token1, token2, P1_start, P2_start, dice, dice_img);
+        game = new Game(token1, token2, P1_start, P2_start, dice, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname);
         x = 0;
         y = 0;
         Bounds bis = token1.localToScene(token1.getBoundsInLocal());
@@ -95,6 +127,9 @@ public class HelloController {
 
     public void initialise_cells()
     {
+        P1_start = new Cell(-1, 54.0, 696.0);
+        P2_start = new Cell(-2, 80.0, 696.0);
+
         ArrayList<Double> X = new ArrayList<>();
         X.add(60.0);
         X.add(106.0);
