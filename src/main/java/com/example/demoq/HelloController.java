@@ -145,6 +145,11 @@ public class HelloController {
             }
             cells.add(new Cell(i, X.get(Xcoor), Y.get(Ycoor)));
         }
+
+        for (Cell cell: cells)
+        {
+            System.out.println("Cell: "+cell.getValue()+" X: "+cell.getX()+" Y: "+cell.getY());
+        }
     }
 
     public void playDice(MouseEvent mouseEvent) {
