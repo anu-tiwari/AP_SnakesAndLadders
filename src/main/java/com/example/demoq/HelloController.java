@@ -79,9 +79,9 @@ public class HelloController {
     @FXML
     void initialize() {
         //locval.setText("Hey");
-        //dice_img = new ImageView(new Image(new File("/com.example.demoq/six_dice.png").toURI().toString(), true));
-//        Image img = new Image(new File("one_dice.jpg").toURI().toString(), true);
-//        System.out.println(getClass().getResource("one_dice.jpg"));
+        //dice_img = new ImageView(new Image(getClass().getResource("one_dice.jpg"), true));
+        Image img = new Image(new File("one_dice.jpg").toURI().toString(), true);
+        System.out.println(getClass().getResource("one_dice.jpg"));
 //        dice_img.setImage(img);
         //<ImageView fx:id="dice_img" fitHeight="85.0" fitWidth="81.0" layoutX="243.0" layoutY="713.0" preserveRatio="true" style="-fx-background-radius: 5px" />
         i=0;
@@ -96,6 +96,31 @@ public class HelloController {
 
     public void initialise_cells()
     {
+        ArrayList<Double> X = new ArrayList<>();
+        X.add(60.0);
+        X.add(106.0);
+        X.add(152.0);
+        X.add(197.0);
+        X.add(243.0);
+        X.add(288.0);
+        X.add(334.0);
+        X.add(380.0);
+        X.add(425.0);
+        X.add(470.0);
+
+        ArrayList<Double> Y = new ArrayList<>();
+        Y.add(631.0);
+        Y.add(568.0);
+        Y.add(504.0);
+        Y.add(437.0);
+        Y.add(373.0);
+        Y.add(305.0);
+        Y.add(241.0);
+        Y.add(176.0);
+        Y.add(110.0);
+        Y.add(47.0);
+
+        cells = new ArrayList<>();
 
     }
     public void playDice(MouseEvent mouseEvent) {
