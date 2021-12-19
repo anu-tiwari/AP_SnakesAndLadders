@@ -20,4 +20,9 @@ public class Player
     {
 
     }
+
+    public void start()
+    {
+
+    }
 }

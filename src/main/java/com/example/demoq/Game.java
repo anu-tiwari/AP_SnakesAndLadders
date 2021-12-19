@@ -8,6 +8,8 @@ public class Game
 {
     Player P1;
     Player P2;
+    boolean P1_isStart;
+    boolean P2_isStart;
     int next_chance;    //1 for P1 2 for P2
     Button dice_button;
     ImageView dice_img;
@@ -21,6 +23,8 @@ public class Game
         dice_button = d;
         dice_img = dice_image;
         dice = new Dice(dice_img);
+        P1_isStart = false;
+        P2_isStart = false;
     }
 
     public void rollDice()
@@ -28,11 +32,21 @@ public class Game
         int num = dice.roll();
         if (next_chance==1)
         {
-            P1.travel(num);
+            if (num==1 && !P1_isStart)
+                P1.start();
+            else
+                P1.travel(num);
         }
         else
         {
-            P2.travel(num);
+            if (num==2 && !P2_isStart)
+                P2.start();
+            else
+                P2.travel(num);
         }
+        if (next_chance==1)
+            next_chance = 2;
+        else
+            next_chance = 1;
     }
 }

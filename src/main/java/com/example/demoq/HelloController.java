@@ -47,7 +47,7 @@ public class HelloController {
 
     private Game game;
 
-    private ArrayList<Cell> cells;
+    private static ArrayList<Cell> cells;
 
     private Cell P1_start;
     private Cell P2_start;
@@ -156,6 +156,10 @@ public class HelloController {
         i++;
         game.rollDice();
         diceval.setText("Dice clicked"+i+"times");
+    }
+
+    public static ArrayList<Cell> getCells() {
+        return cells;
     }
 }
 
