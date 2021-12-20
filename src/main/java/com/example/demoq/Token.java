@@ -30,6 +30,8 @@ public class Token
     public void move(int dice_value)
     {
         int new_val = pos.getValue() + dice_value;
+        if (new_val>100)
+            return;
 //        for (int i= pos.getValue(); i<=new_val-1; i++)
 //        {
 //            bt.setTranslateX(cells.get(i).getX()-og.getX());
