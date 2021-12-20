@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
@@ -78,6 +79,7 @@ public class HelloController {
     private Game game;
 
     private static ArrayList<Cell> cells;
+    HashMap<Cell, Snake_Ladder> SandL;
 
     private Cell P1_start;
     private Cell P2_start;
@@ -117,12 +119,60 @@ public class HelloController {
         //<ImageView fx:id="dice_img" fitHeight="85.0" fitWidth="81.0" layoutX="243.0" layoutY="713.0" preserveRatio="true" style="-fx-background-radius: 5px" />
         i=0;
         initialise_cells();
+        initialise_s_l();
         game = new Game(token1, token2, P1_start, P2_start, dice, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname, P1_start, P2_start);
         x = 0;
         y = 0;
         Bounds bis = token1.localToScene(token1.getBoundsInLocal());
         curr_x = bis.getMinX();
         curr_y = bis.getMinY();
+    }
+
+    public void initialise_s_l()
+    {
+        SandL = new HashMap<>();
+
+        SandL.put(cells.get(23), new Snake(cells.get(23), cells.get(4)));
+        cells.get(23).setSnakeMouth(true);
+        SandL.put(cells.get(43), new Snake(cells.get(43), cells.get(22)));
+        cells.get(43).setSnakeMouth(true);
+        SandL.put(cells.get(60), new Snake(cells.get(60), cells.get(42)));
+        cells.get(60).setSnakeMouth(true);
+        SandL.put(cells.get(56), new Snake(cells.get(56), cells.get(25)));
+        cells.get(56).setSnakeMouth(true);
+        SandL.put(cells.get(69), new Snake(cells.get(69), cells.get(48)));
+        cells.get(69).setSnakeMouth(true);
+        SandL.put(cells.get(90), new Snake(cells.get(90), cells.get(72)));
+        cells.get(90).setSnakeMouth(true);
+        SandL.put(cells.get(86), new Snake(cells.get(86), cells.get(53)));
+        cells.get(86).setSnakeMouth(true);
+        SandL.put(cells.get(94), new Snake(cells.get(94), cells.get(73)));
+        cells.get(94).setSnakeMouth(true);
+        SandL.put(cells.get(96), new Snake(cells.get(96), cells.get(84)));
+        cells.get(96).setSnakeMouth(true);
+        SandL.put(cells.get(98), new Snake(cells.get(98), cells.get(58)));
+        cells.get(98).setSnakeMouth(true);
+
+        SandL.put(cells.get(3), new Ladder(cells.get(3), cells.get(21)));
+        cells.get(3).setLadderLow(true);
+        SandL.put(cells.get(8), new Ladder(cells.get(8), cells.get(46)));
+        cells.get(8).setLadderLow(true);
+        SandL.put(cells.get(16), new Ladder(cells.get(16), cells.get(26)));
+        cells.get(16).setLadderLow(true);
+        SandL.put(cells.get(29), new Ladder(cells.get(29), cells.get(33)));
+        cells.get(29).setLadderLow(true);
+        SandL.put(cells.get(37), new Ladder(cells.get(37), cells.get(65)));
+        cells.get(37).setLadderLow(true);
+        SandL.put(cells.get(50), new Ladder(cells.get(50), cells.get(70)));
+        cells.get(50).setLadderLow(true);
+        SandL.put(cells.get(64), new Ladder(cells.get(64), cells.get(77)));
+        cells.get(64).setLadderLow(true);
+        SandL.put(cells.get(61), new Ladder(cells.get(61), cells.get(82)));
+        cells.get(61).setLadderLow(true);
+        SandL.put(cells.get(76), new Ladder(cells.get(76), cells.get(95)));
+        cells.get(76).setLadderLow(true);
+        SandL.put(cells.get(89), new Ladder(cells.get(89), cells.get(91)));
+        cells.get(89).setLadderLow(true);
     }
 
     public void initialise_cells()
