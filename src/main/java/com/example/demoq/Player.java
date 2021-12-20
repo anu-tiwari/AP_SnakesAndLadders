@@ -23,14 +23,11 @@ public class Player
         display = dis;
     }
 
-    public void move(int dice_value)
-    {
-        tok.move(dice_value);
-    }
-
     public void travel(int num)
     {
         tok.move(num);
+        if (tok.getPos().isSnakeMouth() || tok.getPos().isLadderLow())
+            HelloController.getSandL().get(tok.getPos()).move(tok);
     }
 
     public void start()
@@ -61,5 +58,10 @@ public class Player
 
     public Token getTok() {
         return tok;
+    }
+
+    public boolean hasWon()
+    {
+        return tok.getPos().getValue() == 100;
     }
 }

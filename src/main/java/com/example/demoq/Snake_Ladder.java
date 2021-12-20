@@ -2,8 +2,8 @@ package com.example.demoq;
 
 abstract public class Snake_Ladder
 {
-    Cell trap;
-    Cell deliver;
+    private Cell trap;
+    private Cell deliver;
 
     Snake_Ladder(Cell T, Cell D)
     {

@@ -79,7 +79,7 @@ public class HelloController {
     private Game game;
 
     private static ArrayList<Cell> cells;
-    HashMap<Cell, Snake_Ladder> SandL;
+    private static HashMap<Cell, Snake_Ladder> SandL;
 
     private Cell P1_start;
     private Cell P2_start;
@@ -134,45 +134,45 @@ public class HelloController {
 
         SandL.put(cells.get(23), new Snake(cells.get(23), cells.get(4)));
         cells.get(23).setSnakeMouth(true);
-        SandL.put(cells.get(43), new Snake(cells.get(43), cells.get(22)));
-        cells.get(43).setSnakeMouth(true);
-        SandL.put(cells.get(60), new Snake(cells.get(60), cells.get(42)));
-        cells.get(60).setSnakeMouth(true);
-        SandL.put(cells.get(56), new Snake(cells.get(56), cells.get(25)));
-        cells.get(56).setSnakeMouth(true);
-        SandL.put(cells.get(69), new Snake(cells.get(69), cells.get(48)));
-        cells.get(69).setSnakeMouth(true);
-        SandL.put(cells.get(90), new Snake(cells.get(90), cells.get(72)));
-        cells.get(90).setSnakeMouth(true);
-        SandL.put(cells.get(86), new Snake(cells.get(86), cells.get(53)));
-        cells.get(86).setSnakeMouth(true);
-        SandL.put(cells.get(94), new Snake(cells.get(94), cells.get(73)));
-        cells.get(94).setSnakeMouth(true);
-        SandL.put(cells.get(96), new Snake(cells.get(96), cells.get(84)));
-        cells.get(96).setSnakeMouth(true);
-        SandL.put(cells.get(98), new Snake(cells.get(98), cells.get(58)));
-        cells.get(98).setSnakeMouth(true);
+        SandL.put(cells.get(42), new Snake(cells.get(42), cells.get(21)));
+        cells.get(42).setSnakeMouth(true);
+        SandL.put(cells.get(59), new Snake(cells.get(59), cells.get(41)));
+        cells.get(59).setSnakeMouth(true);
+        SandL.put(cells.get(55), new Snake(cells.get(55), cells.get(24)));
+        cells.get(55).setSnakeMouth(true);
+        SandL.put(cells.get(68), new Snake(cells.get(68), cells.get(47)));
+        cells.get(68).setSnakeMouth(true);
+        SandL.put(cells.get(89), new Snake(cells.get(89), cells.get(71)));
+        cells.get(89).setSnakeMouth(true);
+        SandL.put(cells.get(85), new Snake(cells.get(85), cells.get(52)));
+        cells.get(85).setSnakeMouth(true);
+        SandL.put(cells.get(93), new Snake(cells.get(93), cells.get(72)));
+        cells.get(93).setSnakeMouth(true);
+        SandL.put(cells.get(95), new Snake(cells.get(95), cells.get(83)));
+        cells.get(95).setSnakeMouth(true);
+        SandL.put(cells.get(97), new Snake(cells.get(97), cells.get(57)));
+        cells.get(97).setSnakeMouth(true);
 
-        SandL.put(cells.get(3), new Ladder(cells.get(3), cells.get(21)));
-        cells.get(3).setLadderLow(true);
-        SandL.put(cells.get(8), new Ladder(cells.get(8), cells.get(46)));
-        cells.get(8).setLadderLow(true);
-        SandL.put(cells.get(16), new Ladder(cells.get(16), cells.get(26)));
-        cells.get(16).setLadderLow(true);
-        SandL.put(cells.get(29), new Ladder(cells.get(29), cells.get(33)));
-        cells.get(29).setLadderLow(true);
-        SandL.put(cells.get(37), new Ladder(cells.get(37), cells.get(65)));
-        cells.get(37).setLadderLow(true);
-        SandL.put(cells.get(50), new Ladder(cells.get(50), cells.get(70)));
-        cells.get(50).setLadderLow(true);
-        SandL.put(cells.get(64), new Ladder(cells.get(64), cells.get(77)));
-        cells.get(64).setLadderLow(true);
-        SandL.put(cells.get(61), new Ladder(cells.get(61), cells.get(82)));
-        cells.get(61).setLadderLow(true);
-        SandL.put(cells.get(76), new Ladder(cells.get(76), cells.get(95)));
-        cells.get(76).setLadderLow(true);
-        SandL.put(cells.get(89), new Ladder(cells.get(89), cells.get(91)));
-        cells.get(89).setLadderLow(true);
+        SandL.put(cells.get(2), new Ladder(cells.get(2), cells.get(20)));
+        cells.get(2).setLadderLow(true);
+        SandL.put(cells.get(7), new Ladder(cells.get(7), cells.get(45)));
+        cells.get(7).setLadderLow(true);
+        SandL.put(cells.get(15), new Ladder(cells.get(15), cells.get(25)));
+        cells.get(15).setLadderLow(true);
+        SandL.put(cells.get(28), new Ladder(cells.get(28), cells.get(32)));
+        cells.get(28).setLadderLow(true);
+        SandL.put(cells.get(36), new Ladder(cells.get(36), cells.get(64)));
+        cells.get(36).setLadderLow(true);
+        SandL.put(cells.get(49), new Ladder(cells.get(49), cells.get(69)));
+        cells.get(49).setLadderLow(true);
+        SandL.put(cells.get(63), new Ladder(cells.get(63), cells.get(76)));
+        cells.get(63).setLadderLow(true);
+        SandL.put(cells.get(60), new Ladder(cells.get(60), cells.get(81)));
+        cells.get(60).setLadderLow(true);
+        SandL.put(cells.get(75), new Ladder(cells.get(75), cells.get(94)));
+        cells.get(75).setLadderLow(true);
+        SandL.put(cells.get(88), new Ladder(cells.get(88), cells.get(90)));
+        cells.get(88).setLadderLow(true);
     }
 
     public void initialise_cells()
@@ -244,6 +244,10 @@ public class HelloController {
 
     public static ArrayList<Cell> getCells() {
         return cells;
+    }
+
+    public static HashMap<Cell, Snake_Ladder> getSandL() {
+        return SandL;
     }
 }
 

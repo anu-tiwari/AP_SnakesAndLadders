@@ -86,6 +86,10 @@ public class Game
             else if (P2_isStart)
                 P2.travel(num);
         }
+        if (P1.hasWon())
+        {
+
+        }
         reset_prompt();
         if (next_chance==1) {
             next_chance = 2;

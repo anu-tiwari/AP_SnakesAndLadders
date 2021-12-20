@@ -27,6 +27,12 @@ public class Token
         return pos;
     }
 
+    public void setPos(Object o, Cell p)
+    {
+        if (o instanceof Snake_Ladder)
+            pos = p;
+    }
+
     public void move(int dice_value)
     {
         int new_val = pos.getValue() + dice_value;
@@ -47,5 +53,10 @@ public class Token
         bt.setTranslateX(cells.get(0).getX() - og.getX());
         bt.setTranslateY(cells.get(0).getY() - og.getY());
         pos = cells.get(0);
+    }
+
+    public Cell getOg()
+    {
+        return og;
     }
 }
