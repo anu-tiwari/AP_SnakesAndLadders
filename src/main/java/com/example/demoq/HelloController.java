@@ -50,6 +50,12 @@ public class HelloController {
     public ImageView arrow;
 
     @FXML
+    public ImageView win_display;
+
+    @FXML
+    public Rectangle Win_dim;
+
+    @FXML
     private ResourceBundle resources;
 
     @FXML
@@ -123,7 +129,7 @@ public class HelloController {
         i=0;
         initialise_cells();
         initialise_s_l();
-        game = new Game(token1, token2, P1_start, P2_start, dice, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname, P1_start, P2_start, arrow);
+        game = new Game(token1, token2, P1_start, P2_start, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname, P1_start, P2_start, arrow, win_display, Win_dim);
         x = 0;
         y = 0;
         Bounds bis = token1.localToScene(token1.getBoundsInLocal());

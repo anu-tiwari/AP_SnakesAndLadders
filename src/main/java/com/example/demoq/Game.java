@@ -16,22 +16,26 @@ public class Game
     boolean P1_isStart;
     boolean P2_isStart;
     int next_chance;    //1 for P1 2 for P2
-    Button dice_button;
+    //Button dice_button;
     ImageView dice_img;
     Dice dice;
     static ImageView arrow;
+    ImageView win_img;
+    Rectangle win_dim;
 
-    Game(Button p1, Button p2, Cell p1_start, Cell p2_start, Button d, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a)
+    Game(Button p1, Button p2, Cell p1_start, Cell p2_start, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a, ImageView win, Rectangle win_dimming)
     {
         P1 = new Player(p1_start, p1, p1_label, p1_top, p1_bottom, p1_bg, p1_display, og1);
         P2 = new Player(p2_start, p2, p2_label, p2_top, p2_bottom, p2_bg, p2_display, og2);
         next_chance = 1;
-        dice_button = d;
+        //dice_button = d;
         dice_img = dice_image;
         dice = new Dice(dice_img);
         P1_isStart = false;
         P2_isStart = false;
         arrow = a;
+        win_img = win;
+        win_dim = win_dimming;
         prompt(P1);
     }
 
@@ -92,7 +96,17 @@ public class Game
         }
         if (P1.hasWon())
         {
-
+            win_dim.setFill(Color.web("#808080"));
+            win_dim.setOpacity(0.5);
+            win_img.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/Win_P2.png"))));
+            return;
+        }
+        if (P2.hasWon())
+        {
+            win_dim.setFill(Color.web("#808080"));
+            win_dim.setOpacity(0.5);
+            win_img.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/Win_P2.png"))));
+            return;
         }
         reset_prompt();
         if (next_chance==1) {

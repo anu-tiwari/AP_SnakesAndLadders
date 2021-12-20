@@ -91,11 +91,13 @@
             <Image url="@../images/six_dice.png" />
          </image>
       </ImageView>
+      <Rectangle fx:id="Win_dim" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="847.0" layoutX="-7.0" layoutY="-8.0" stroke="BLACK" strokeType="INSIDE" width="586.0" />
         <Button fx:id="dice" layoutX="248.0" layoutY="718.0" mnemonicParsing="false" onMouseClicked="#playDice" prefHeight="74.0" prefWidth="72.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" textFill="BLACK" />
       <ImageView fx:id="arrow" fitHeight="54.0" fitWidth="47.0" layoutX="261.0" layoutY="669.0">
          <image>
             <Image url="@../images/arrow.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="win_display" fitHeight="525.0" fitWidth="937.0" layoutX="-195.0" layoutY="154.0" />
     </children>
 </Pane>
