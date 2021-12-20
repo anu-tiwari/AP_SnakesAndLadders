@@ -19,8 +19,9 @@ public class Game
     Button dice_button;
     ImageView dice_img;
     Dice dice;
+    static ImageView arrow;
 
-    Game(Button p1, Button p2, Cell p1_start, Cell p2_start, Button d, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2)
+    Game(Button p1, Button p2, Cell p1_start, Cell p2_start, Button d, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a)
     {
         P1 = new Player(p1_start, p1, p1_label, p1_top, p1_bottom, p1_bg, p1_display, og1);
         P2 = new Player(p2_start, p2, p2_label, p2_top, p2_bottom, p2_bg, p2_display, og2);
@@ -30,11 +31,13 @@ public class Game
         dice = new Dice(dice_img);
         P1_isStart = false;
         P2_isStart = false;
+        arrow = a;
         prompt(P1);
     }
 
     public static void prompt(Player p)
     {
+        arrow.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png"))));
         if (p.equals(P1))
             p = P2;
         else
@@ -67,6 +70,7 @@ public class Game
     }
     public void rollDice()
     {
+        arrow.setImage(null);
         int num = dice.roll();
         if (next_chance==1)
         {
