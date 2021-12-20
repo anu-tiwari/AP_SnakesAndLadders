@@ -117,7 +117,7 @@ public class HelloController {
         //<ImageView fx:id="dice_img" fitHeight="85.0" fitWidth="81.0" layoutX="243.0" layoutY="713.0" preserveRatio="true" style="-fx-background-radius: 5px" />
         i=0;
         initialise_cells();
-        game = new Game(token1, token2, P1_start, P2_start, dice, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname);
+        game = new Game(token1, token2, P1_start, P2_start, dice, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname, P1_start, P2_start);
         x = 0;
         y = 0;
         Bounds bis = token1.localToScene(token1.getBoundsInLocal());

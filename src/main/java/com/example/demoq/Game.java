@@ -20,10 +20,10 @@ public class Game
     ImageView dice_img;
     Dice dice;
 
-    Game(Button p1, Button p2, Cell p1_start, Cell p2_start, Button d, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display)
+    Game(Button p1, Button p2, Cell p1_start, Cell p2_start, Button d, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2)
     {
-        P1 = new Player(p1_start, p1, p1_label, p1_top, p1_bottom, p1_bg, p1_display);
-        P2 = new Player(p2_start, p2, p2_label, p2_top, p2_bottom, p2_bg, p2_display);
+        P1 = new Player(p1_start, p1, p1_label, p1_top, p1_bottom, p1_bg, p1_display, og1);
+        P2 = new Player(p2_start, p2, p2_label, p2_top, p2_bottom, p2_bg, p2_display, og2);
         next_chance = 1;
         dice_button = d;
         dice_img = dice_image;
@@ -70,16 +70,20 @@ public class Game
         int num = dice.roll();
         if (next_chance==1)
         {
-            if (num==1 && !P1_isStart)
+            if (num==1 && !P1_isStart) {
                 P1.start();
-            else
+                P1_isStart = true;
+            }
+            else if (P1_isStart)
                 P1.travel(num);
         }
         else
         {
-            if (num==2 && !P2_isStart)
+            if (num==1 && !P2_isStart) {
                 P2.start();
-            else
+                P2_isStart = true;
+            }
+            else if (P2_isStart)
                 P2.travel(num);
         }
         reset_prompt();

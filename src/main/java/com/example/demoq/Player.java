@@ -13,9 +13,9 @@ public class Player
     Rectangle BG;
     Label display;
 
-    Player(Cell start, Button bt, Rectangle l, Rectangle t, Rectangle b, Rectangle bg, Label dis)
+    Player(Cell start, Button bt, Rectangle l, Rectangle t, Rectangle b, Rectangle bg, Label dis, Cell og)
     {
-        tok = new Token(start, bt);
+        tok = new Token(start, bt, og);
         label = l;
         label_top = t;
         label_bottom = b;
@@ -30,12 +30,12 @@ public class Player
 
     public void travel(int num)
     {
-
+        tok.move(num);
     }
 
     public void start()
     {
-
+        tok.start();
     }
 
     public Rectangle getLabel() {
