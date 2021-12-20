@@ -97,14 +97,14 @@ public class Game
         if (P1.hasWon())
         {
             win_dim.setFill(Color.web("#808080"));
-            win_dim.setOpacity(0.5);
-            win_img.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/Win_P2.png"))));
+            win_dim.setOpacity(0.3);
+            win_img.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/Win_P1.png"))));
             return;
         }
         if (P2.hasWon())
         {
             win_dim.setFill(Color.web("#808080"));
-            win_dim.setOpacity(0.5);
+            win_dim.setOpacity(0.3);
             win_img.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/Win_P2.png"))));
             return;
         }
