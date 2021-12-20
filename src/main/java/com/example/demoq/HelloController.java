@@ -131,28 +131,28 @@ public class HelloController {
         P2_start = new Cell(-2, 80.0, 696.0);
 
         ArrayList<Double> X = new ArrayList<>();
-        X.add(60.0);
-        X.add(106.0);
-        X.add(152.0);
-        X.add(197.0);
-        X.add(243.0);
-        X.add(288.0);
-        X.add(334.0);
-        X.add(380.0);
-        X.add(425.0);
-        X.add(470.0);
+        X.add(68.0);
+        X.add(115.0);
+        X.add(160.0);
+        X.add(209.0);
+        X.add(251.0);
+        X.add(296.0);
+        X.add(342.0);
+        X.add(388.0);
+        X.add(433.0);
+        X.add(478.0);
 
         ArrayList<Double> Y = new ArrayList<>();
-        Y.add(631.0);
-        Y.add(568.0);
-        Y.add(504.0);
-        Y.add(437.0);
-        Y.add(373.0);
-        Y.add(305.0);
-        Y.add(241.0);
-        Y.add(176.0);
-        Y.add(110.0);
-        Y.add(47.0);
+        Y.add(638.0);
+        Y.add(573.0);
+        Y.add(509.0);
+        Y.add(442.0);
+        Y.add(378.0);
+        Y.add(313.0);
+        Y.add(246.0);
+        Y.add(182.0);
+        Y.add(115.0);
+        Y.add(52.0);
 
         cells = new ArrayList<>();
         int Xcoor, Ycoor;
