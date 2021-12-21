@@ -25,9 +25,22 @@ public class Player
 
     public void travel(int num)
     {
-        tok.move(num);
-        if (tok.getPos().isSnakeMouth() || tok.getPos().isLadderLow())
-            HelloController.getSandL().get(tok.getPos()).move(tok);
+        //tok.move(num);
+        //des = cells.get();
+        if (num==0) {
+            if (HelloController.getCells().get(tok.getPos().getValue()).getValue()>100)
+                return;
+            tok.setDes(HelloController.getCells().get(tok.getPos().getValue()));
+        }
+        else {
+            if (HelloController.getCells().get(tok.getPos().getValue() + num).getValue()>100)
+                return;
+            tok.setDes(HelloController.getCells().get(tok.getPos().getValue() + num));
+        }
+        System.out.println("des set is "+tok.getDes().getValue());
+        Move m = new Move(tok, num);
+        m.start();
+        System.out.println("pos of " + this +" is "+tok.getPos().value);
     }
 
     public void start()

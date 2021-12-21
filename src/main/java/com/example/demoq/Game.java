@@ -20,8 +20,8 @@ public class Game
     ImageView dice_img;
     Dice dice;
     static ImageView arrow;
-    ImageView win_img;
-    Rectangle win_dim;
+    static ImageView win_img;
+    static Rectangle win_dim;
 
     Game(Button p1, Button p2, Cell p1_start, Cell p2_start, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a, ImageView win, Rectangle win_dimming)
     {
@@ -75,6 +75,7 @@ public class Game
     public void rollDice()
     {
         arrow.setImage(null);
+        freeze_dice();
         int num = dice.roll();
         if (next_chance==1)
         {
@@ -82,8 +83,13 @@ public class Game
                 P1.start();
                 P1_isStart = true;
             }
-            else if (P1_isStart)
-                P1.travel(num);
+//            else if(num==1 && P1_isStart)
+//            {
+//                P1.travel(num);
+//            }
+            else if (P1_isStart) {
+                P1.travel(num-1);
+            }
         }
         else
         {
@@ -91,9 +97,26 @@ public class Game
                 P2.start();
                 P2_isStart = true;
             }
+//            else if(num==1 && P2_isStart)
+//            {
+//                P1.travel(num);
+//            }
             else if (P2_isStart)
-                P2.travel(num);
+                P2.travel(num-1);
         }
+        reset_prompt();
+        if (next_chance==1) {
+            next_chance = 2;
+            prompt(P2);
+        }
+        else {
+            next_chance = 1;
+            prompt(P1);
+        }
+    }
+
+    public static void win()
+    {
         if (P1.hasWon())
         {
             win_dim.setFill(Color.web("#000000"));
@@ -108,14 +131,12 @@ public class Game
             win_img.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/Win_P2.png"))));
             return;
         }
-        reset_prompt();
-        if (next_chance==1) {
-            next_chance = 2;
-            prompt(P2);
-        }
-        else {
-            next_chance = 1;
-            prompt(P1);
-        }
+    }
+    public void freeze_dice() {
+    }
+
+    public void setNext_chance()
+    {
+
     }
 }

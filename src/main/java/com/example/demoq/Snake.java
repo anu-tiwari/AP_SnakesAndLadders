@@ -10,7 +10,7 @@ public class Snake extends Snake_Ladder
 
     @Override
     public void move(Token tok) {
-
+        tok.setDes(getDeliver());
         tok.getBt().setTranslateX(getDeliver().getX()-tok.getOg().getX());
         tok.getBt().setTranslateY(getDeliver().getY()-tok.getOg().getY());
 
