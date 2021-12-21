@@ -6,6 +6,7 @@ import javafx.scene.shape.Rectangle;
 
 public class Player
 {
+    String name;
     Token tok;
     Rectangle label;
     Rectangle label_top;
@@ -13,8 +14,9 @@ public class Player
     Rectangle BG;
     Label display;
 
-    Player(Cell start, Button bt, Rectangle l, Rectangle t, Rectangle b, Rectangle bg, Label dis, Cell og)
+    Player(String n, Cell start, Button bt, Rectangle l, Rectangle t, Rectangle b, Rectangle bg, Label dis, Cell og)
     {
+        name = n;
         tok = new Token(start, bt, og);
         label = l;
         label_top = t;
@@ -23,24 +25,38 @@ public class Player
         display = dis;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void travel(int num)
     {
         //tok.move(num);
         //des = cells.get();
         if (num==0) {
-            if (HelloController.getCells().get(tok.getPos().getValue()).getValue()>100)
+            if (tok.getPos().getValue()>99)
                 return;
             tok.setDes(HelloController.getCells().get(tok.getPos().getValue()));
         }
         else {
-            if (HelloController.getCells().get(tok.getPos().getValue() + num).getValue()>100)
+            if (tok.getPos().getValue() + num>99)
                 return;
             tok.setDes(HelloController.getCells().get(tok.getPos().getValue() + num));
         }
         System.out.println("des set is "+tok.getDes().getValue());
+        //Game.freeze_dice(this);
         Move m = new Move(tok, num);
         m.start();
-        System.out.println("pos of " + this +" is "+tok.getPos().value);
+        System.out.println("pos of " + this.name +" is "+tok.getPos().value);
+//        try {
+//            m.join();
+//        }
+//        catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        if (!m.isAlive())
+        //Game.setNext_chance(getName());
     }
 
     public void start()

@@ -25,8 +25,8 @@ public class Game
 
     Game(Button p1, Button p2, Cell p1_start, Cell p2_start, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a, ImageView win, Rectangle win_dimming)
     {
-        P1 = new Player(p1_start, p1, p1_label, p1_top, p1_bottom, p1_bg, p1_display, og1);
-        P2 = new Player(p2_start, p2, p2_label, p2_top, p2_bottom, p2_bg, p2_display, og2);
+        P1 = new Player("P1", p1_start, p1, p1_label, p1_top, p1_bottom, p1_bg, p1_display, og1);
+        P2 = new Player("P2", p2_start, p2, p2_label, p2_top, p2_bottom, p2_bg, p2_display, og2);
         next_chance = 1;
         //dice_button = d;
         dice_img = dice_image;
