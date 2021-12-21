@@ -39,11 +39,12 @@ public class Token
     {
         des = d;
     }
-    public void move(int dice_value)
-    {
+
+//    public void move(int dice_value)
+//    {
         //int new_val = pos.getValue() + dice_value;
-        if (des.getValue()>100)
-            return;
+//        if (des.getValue()>100)
+//            return;
 //        for (int i= pos.getValue(); i<=new_val-1; i++)
 //        {
 //            bt.setTranslateX(cells.get(i).getX()-og.getX());
@@ -51,14 +52,16 @@ public class Token
 //        }
         //des = cells.get(new_val-1);
         //System.out.println("des is "+des.getValue());
-        walk_steps();
+        //walk_steps();
 //        bt.setTranslateX(cells.get(new_val-1).getX()-og.getX());
 //        bt.setTranslateY(cells.get(new_val-1).getY()-og.getY());
 //        pos = cells.get(new_val-1);
-    }
+//    }
 
-    public void walk_steps()
+    public void move(int dice_value)
     {
+        if (des.getValue()>100)
+            return;
         while(!pos.equals(cells.get(des.getValue()-1)))
         {
             //System.out.println(pos.equals(des));
@@ -99,8 +102,13 @@ public class Token
 
     public void one_step()
     {
-        if (pos.getValue()==des.getValue())
+        if (pos.getValue()==des.getValue()) {
+            Game.unfreeze_dice();
+            Game.reset_prompt(this);
+            Game.setNext_chance(this);
+            Game.prompt(this);
             return;
+        }
         //System.out.println("translating to  "+cells.get(getPos().getValue()).getValue());
         bt.setTranslateX(cells.get(getPos().getValue()).getX() - og.getX());
         bt.setTranslateY(cells.get(getPos().getValue()).getY() - og.getY());
@@ -111,19 +119,12 @@ public class Token
         {
             if (pos.isSnakeMouth() || pos.isLadderLow()) {
                 System.out.println("fetching snake or ladder");
-                try {
-                    Thread.sleep(250);
-                }
-                catch(Exception e)
-                {
-                    e.printStackTrace();
-                }
                 HelloController.getSandL().get(pos).move(this);
             }
         }
         if(pos.getValue()==100)
         {
-            Game.win();
+            Game.win(this);
         }
     }
 }

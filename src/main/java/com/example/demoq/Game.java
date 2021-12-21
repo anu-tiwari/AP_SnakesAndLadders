@@ -1,5 +1,6 @@
 package com.example.demoq;
 
+import javafx.animation.TranslateTransition;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -8,6 +9,9 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
+
+import java.io.InputStream;
 
 public class Game
 {
@@ -15,20 +19,23 @@ public class Game
     static Player P2;
     boolean P1_isStart;
     boolean P2_isStart;
-    int next_chance;    //1 for P1 2 for P2
-    //Button dice_button;
+    static int next_chance;    //1 for P1 2 for P2
+    static Button dice_button;
     ImageView dice_img;
     Dice dice;
     static ImageView arrow;
     static ImageView win_img;
     static Rectangle win_dim;
+    static TranslateTransition translate;
+    static Image arr;
+    //static Arrow_Mov arrow_anim;
 
-    Game(Button p1, Button p2, Cell p1_start, Cell p2_start, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a, ImageView win, Rectangle win_dimming)
+    Game(Button d,Button p1, Button p2, Cell p1_start, Cell p2_start, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a, ImageView win, Rectangle win_dimming)
     {
         P1 = new Player("P1", p1_start, p1, p1_label, p1_top, p1_bottom, p1_bg, p1_display, og1);
         P2 = new Player("P2", p2_start, p2, p2_label, p2_top, p2_bottom, p2_bg, p2_display, og2);
         next_chance = 1;
-        //dice_button = d;
+        dice_button = d;
         dice_img = dice_image;
         dice = new Dice(dice_img);
         P1_isStart = false;
@@ -36,16 +43,41 @@ public class Game
         arrow = a;
         win_img = win;
         win_dim = win_dimming;
-        prompt(P1);
+        arrow.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png"))));
+        arrow.setCache(false);
+        //arrow_anim = new Arrow_Mov(arrow);
+        translate = new TranslateTransition();
+        arr = new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png")));
+        prompt(this);
     }
 
-    public static void prompt(Player p)
+    public static void prompt(Object o)
     {
-        arrow.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png"))));
-        if (p.equals(P1))
+        if (!(o instanceof Game || o instanceof Token))
+            return;
+        Player p;
+        if (next_chance==1)
             p = P2;
         else
             p = P1;
+        //arrow = new ImageView(arr);
+        arrow.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png"))));
+//        if (p.equals(P1))
+//            p = P2;
+//        else
+//            p = P1;
+//        arrow_anim.start();
+//        arrow_anim.run();
+//        arrow.setX(261.0);
+//        arrow.setY(669.0);
+        //translate = new TranslateTransition();
+        translate.setByY(10);
+        translate.setDuration(Duration.millis(1000));
+        translate.setCycleCount(100);
+        translate.setAutoReverse(true);
+        translate.setNode(arrow);
+        translate.play();
+        //layoutX="261.0" layoutY="669.0"/>
         p.getLabel().setFill(Color.web("#22205e"));
         p.getLabel_top().setFill(Color.web("#0c467c"));
         p.getLabel_bottom().setFill(Color.web("#42276b"));
@@ -54,8 +86,10 @@ public class Game
         p.getDisplay().setTextFill(Color.web("#808080"));
     }
 
-    public static void reset_prompt()
+    public static void reset_prompt(Object o)
     {
+        if (!(o instanceof Game || o instanceof Token))
+            return;
         P1.getLabel().setFill(Color.web("#443ebc"));
         P1.getLabel_top().setFill(Color.DODGERBLUE);
         P1.getLabel_bottom().setFill(Color.web("#844ed3"));
@@ -75,20 +109,30 @@ public class Game
     public void rollDice()
     {
         arrow.setImage(null);
-        freeze_dice();
         int num = dice.roll();
         if (next_chance==1)
         {
             if (num==1 && !P1_isStart) {
                 P1.start();
                 P1_isStart = true;
+                reset_prompt(this);
+                setNext_chance(this);
+                prompt(this);
             }
-//            else if(num==1 && P1_isStart)
-//            {
-//                P1.travel(num);
-//            }
             else if (P1_isStart) {
-                P1.travel(num-1);
+                if(P1.travel(num-1)==1)
+                {
+                    Game.reset_prompt(this);
+                    Game.setNext_chance(this);
+                    Game.prompt(this);
+                }
+                //next_chance = 2;
+            }
+            else
+            {
+                reset_prompt(this);
+                setNext_chance(this);
+                prompt(this);
             }
         }
         else
@@ -96,47 +140,77 @@ public class Game
             if (num==1 && !P2_isStart) {
                 P2.start();
                 P2_isStart = true;
+                reset_prompt(this);
+                setNext_chance(this);
+                prompt(this);
             }
-//            else if(num==1 && P2_isStart)
-//            {
-//                P1.travel(num);
-//            }
-            else if (P2_isStart)
-                P2.travel(num-1);
+            else if (P2_isStart) {
+                if(P2.travel(num - 1)==1)
+                {
+                    Game.reset_prompt(this);
+                    Game.setNext_chance(this);
+                    Game.prompt(this);
+                }
+                //next_chance = 1;
+            }
+            else
+            {
+                reset_prompt(this);
+                setNext_chance(this);
+                prompt(this);
+            }
         }
-        reset_prompt();
-        if (next_chance==1) {
-            next_chance = 2;
-            prompt(P2);
-        }
-        else {
-            next_chance = 1;
-            prompt(P1);
-        }
+//        reset_prompt();
+//        if (next_chance==1) {
+//            next_chance = 2;
+//            prompt(P2);
+//        }
+//        else {
+//            next_chance = 1;
+//            prompt(P1);
+//        }
     }
 
-    public static void win()
+    public static void win(Object o)
     {
+        if (!(o instanceof Token))
+            return;
         if (P1.hasWon())
         {
             win_dim.setFill(Color.web("#000000"));
             win_dim.setOpacity(0.7);
             win_img.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/Win_P1.png"))));
-            return;
         }
-        if (P2.hasWon())
+        else if (P2.hasWon())
         {
             win_dim.setFill(Color.web("#000000"));
             win_dim.setOpacity(0.7);
             win_img.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/Win_P2.png"))));
-            return;
         }
-    }
-    public void freeze_dice() {
+        dice_button.setDisable(true);
     }
 
-    public void setNext_chance()
+    public static void freeze_dice()
     {
+        //arrow_anim.stop();
+        translate.stop();
+        dice_button.setDisable(true);
+        arrow.setImage(null);
+    }
 
+    public static void unfreeze_dice()
+    {
+        dice_button.setDisable(false);
+        arrow.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png"))));
+    }
+
+    public static void setNext_chance(Object o)
+    {
+//        if (o instanceof Game || o instanceof Token) {
+        if (next_chance == 1)
+            next_chance = 2;
+        else
+            next_chance = 1;
+        //}
     }
 }
