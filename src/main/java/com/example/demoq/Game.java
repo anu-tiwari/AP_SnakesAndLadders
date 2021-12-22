@@ -1,5 +1,7 @@
 package com.example.demoq;
 
+import javafx.animation.Animation;
+import javafx.animation.PathTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,6 +10,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
@@ -26,7 +31,8 @@ public class Game
     static ImageView arrow;
     static ImageView win_img;
     static Rectangle win_dim;
-    static TranslateTransition translate;
+    //static TranslateTransition translate;
+    static PathTransition pathTransition;
     static Image arr;
     static Button replay;
     static Image light;
@@ -54,7 +60,7 @@ public class Game
         arrow.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png"))));
         arrow.setCache(false);
         //arrow_anim = new Arrow_Mov(arrow);
-        translate = new TranslateTransition();
+        //translate = new TranslateTransition();
         arr = new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png")));
         replay = rep;
         replay.setDisable(true);
@@ -103,12 +109,26 @@ public class Game
 //        arrow.setX(261.0);
 //        arrow.setY(669.0);
         //translate = new TranslateTransition();
-        translate.setByY(10);
-        translate.setDuration(Duration.millis(1000));
-        translate.setCycleCount(2);
-        translate.setAutoReverse(true);
-        translate.setNode(arrow);
-        translate.play();
+//        translate.setByY(10);
+//        translate.setDuration(Duration.millis(1000));
+//        translate.setCycleCount(2);
+//        translate.setAutoReverse(true);
+//        translate.setNode(arrow);
+//        translate.play();
+
+        Path path = new Path();
+        path.getElements().add(new MoveTo(23, 10));
+        path.getElements().add(new LineTo(23, 20));
+
+        pathTransition = new PathTransition();
+
+        pathTransition.setDuration(Duration.millis(500));
+        pathTransition.setNode(arrow);
+        pathTransition.setPath(path);
+        pathTransition.setCycleCount(Animation.INDEFINITE);
+        pathTransition.setAutoReverse(true);
+        pathTransition.play();
+
         //layoutX="261.0" layoutY="669.0"/>
         p.getLabel().setFill(Color.web("#22205e"));
         p.getLabel_top().setFill(Color.web("#0c467c"));
@@ -229,7 +249,8 @@ public class Game
     public static void freeze_dice()
     {
         //arrow_anim.stop();
-        translate.stop();
+        //translate.stop();
+        pathTransition.stop();
 //        arrow.setX(261.0);
 //        arrow.setY(669.0);
         dice_button.setDisable(true);
