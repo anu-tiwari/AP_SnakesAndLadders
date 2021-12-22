@@ -128,6 +128,11 @@ public class Token
         }
     }
 
+//    public void send_to_SandL()
+//    {
+//        HelloController.getSandL().get(pos).move(this);
+//    }
+
     public void reset()
     {
         bt.setTranslateX(0.0);
