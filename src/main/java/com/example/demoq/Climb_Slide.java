@@ -13,6 +13,6 @@ public class Climb_Slide implements Runnable
     @Override
     public void run() {
         //System.out.println("in run function of step walk");
-        obstacle.deliver(tok);
+        //obstacle.deliver(tok);
     }
 }

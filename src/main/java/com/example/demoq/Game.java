@@ -85,7 +85,7 @@ public class Game
 
     public static void prompt(Object o)
     {
-        if (!(o instanceof Game || o instanceof Token))
+        if (!(o instanceof Game || o instanceof Token || o instanceof Step_Walk))
             return;
         Player p;
         if (next_chance==1)
@@ -123,7 +123,7 @@ public class Game
 
     public static void reset_prompt(Object o)
     {
-        if (!(o instanceof Game || o instanceof Token))
+        if (!(o instanceof Game || o instanceof Token || o instanceof Step_Walk))
             return;
         P1.getLabel().setFill(Color.web("#443ebc"));
         P1.getLabel_top().setFill(Color.DODGERBLUE);
