@@ -28,12 +28,13 @@ public class Game
     static Rectangle win_dim;
     static TranslateTransition translate;
     static Image arr;
+    static Button replay;
     //static Arrow_Mov arrow_anim;
 
-    Game(Button d,Button p1, Button p2, Cell p1_start, Cell p2_start, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a, ImageView win, Rectangle win_dimming)
+    Game(Button rep, Button d, Button p1, Button p2, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a, ImageView win, Rectangle win_dimming)
     {
-        P1 = new Player("P1", p1_start, p1, p1_label, p1_top, p1_bottom, p1_bg, p1_display, og1);
-        P2 = new Player("P2", p2_start, p2, p2_label, p2_top, p2_bottom, p2_bg, p2_display, og2);
+        P1 = new Player("P1",  p1, p1_label, p1_top, p1_bottom, p1_bg, p1_display, og1);
+        P2 = new Player("P2", p2, p2_label, p2_top, p2_bottom, p2_bg, p2_display, og2);
         next_chance = 1;
         dice_button = d;
         dice_img = dice_image;
@@ -42,6 +43,7 @@ public class Game
         P2_isStart = false;
         arrow = a;
         win_img = win;
+        win_img.setCache(false);
         win_dim = win_dimming;
         arrow.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png"))));
         arrow.setCache(false);
@@ -49,6 +51,8 @@ public class Game
         translate = new TranslateTransition();
         arr = new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png")));
         prompt(this);
+        replay = rep;
+        replay.setDisable(true);
     }
 
     public static void prompt(Object o)
@@ -73,7 +77,7 @@ public class Game
         //translate = new TranslateTransition();
         translate.setByY(10);
         translate.setDuration(Duration.millis(1000));
-        translate.setCycleCount(100);
+        translate.setCycleCount(2);
         translate.setAutoReverse(true);
         translate.setNode(arrow);
         translate.play();
@@ -188,12 +192,15 @@ public class Game
             win_img.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/Win_P2.png"))));
         }
         dice_button.setDisable(true);
+        replay.setDisable(false);
     }
 
     public static void freeze_dice()
     {
         //arrow_anim.stop();
         translate.stop();
+//        arrow.setX(261.0);
+//        arrow.setY(669.0);
         dice_button.setDisable(true);
         arrow.setImage(null);
     }
@@ -212,5 +219,18 @@ public class Game
         else
             next_chance = 1;
         //}
+    }
+
+    public void replay_game()
+    {
+        win_dim.setFill(Color.TRANSPARENT);
+        win_img.setImage(null);
+        replay.setDisable(true);
+        dice_button.setDisable(false);
+        dice.reset();
+        P1_isStart = false;
+        P2_isStart = false;
+        P1.getTok().reset();
+        P2.getTok().reset();
     }
 }

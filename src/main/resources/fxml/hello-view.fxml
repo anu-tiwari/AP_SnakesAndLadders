@@ -55,15 +55,9 @@
             </image>
         </ImageView>
         <Label fx:id="locval" layoutX="265.0" layoutY="800.0" text="Qwerty" />
-        <Button fx:id="token1" layoutX="54.0" layoutY="696.0" mnemonicParsing="false" onMouseClicked="#move" style="-fx-background-color: #0f1fae; -fx-background-radius: 5em; -fx-min-width: 25px; -fx-max-width: 25px; -fx-min-height: 25px; -fx-max-height: 25px;" text="Button">
-            <effect>
-                <DropShadow />
-            </effect>
+        <Button fx:id="token1" layoutX="54.0" layoutY="696.0" mnemonicParsing="false" onMouseClicked="#move" style="-fx-background-color: TRANSPARENT; -fx-background-radius: 5em; -fx-min-width: 30px; -fx-max-width: 30px; -fx-min-height: 30px; -fx-max-height: 30px;">
         </Button>
-        <Button fx:id="token2" layoutX="80.0" layoutY="696.0" mnemonicParsing="false" style="-fx-background-color: #11a118; -fx-background-radius: 5em; -fx-min-width: 25px; -fx-max-width: 25px; -fx-min-height: 25px; -fx-max-height: 25px;" text="Button" textFill="#11a118">
-            <effect>
-                <DropShadow />
-            </effect>
+        <Button fx:id="token2" layoutX="80.0" layoutY="696.0" mnemonicParsing="false" style="-fx-background-color: TRANSPARENT; -fx-background-radius: 5em; -fx-min-width: 30px; -fx-max-width: 30px; -fx-min-height: 30px; -fx-max-height: 30px;">
         </Button>
         <Rectangle fx:id="p1_label" arcHeight="5.0" arcWidth="5.0" fill="#443ebc" height="50.0" layoutX="155.0" layoutY="731.0" stroke="WHITE" strokeType="INSIDE" width="108.0" />
         <Rectangle fx:id="p2_label" arcHeight="5.0" arcWidth="5.0" fill="#443ebc" height="50.0" layoutX="310.0" layoutY="731.0" stroke="WHITE" strokeType="INSIDE" width="107.0" />
@@ -75,12 +69,12 @@
         <Rectangle fx:id="p2_bottom" arcHeight="5.0" arcWidth="5.0" fill="#844ed3" height="9.0" layoutX="312.0" layoutY="772.0" stroke="BLACK" strokeType="INSIDE" width="101.0" />
         <Rectangle fx:id="p1_bg" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" layoutX="105.0" layoutY="727.0" stroke="#e4da19" strokeType="INSIDE" strokeWidth="5.0" width="58.0" />
         <Rectangle fx:id="p2_bg" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" layoutX="409.0" layoutY="726.0" stroke="#e4da19" strokeType="INSIDE" strokeWidth="5.0" width="58.0" />
-        <Button layoutX="121.0" layoutY="743.0" mnemonicParsing="false" style="-fx-background-color: #0f1fae; -fx-background-radius: 5em; -fx-min-width: 25px; -fx-max-width: 25px; -fx-min-height: 25px; -fx-max-height: 25px;" text="Button">
+        <Button fx:id="low_token1" layoutX="121.0" layoutY="743.0" mnemonicParsing="false" style="-fx-background-color: TRANSPARENT; -fx-background-radius: 5em; -fx-min-width: 30px; -fx-max-width: 30px; -fx-min-height: 30px; -fx-max-height: 30px;" text="Button">
             <effect>
                 <DropShadow />
             </effect>
         </Button>
-        <Button layoutX="425.0" layoutY="743.0" mnemonicParsing="false" style="-fx-background-color: #11a118; -fx-background-radius: 5em; -fx-min-width: 25px; -fx-max-width: 25px; -fx-min-height: 25px; -fx-max-height: 25px;" text="Button">
+        <Button fx:id="low_token2" layoutX="425.0" layoutY="743.0" mnemonicParsing="false" style="-fx-background-color: TRANSPARENT; -fx-background-radius: 5em; -fx-min-width: 30px; -fx-max-width: 30px; -fx-min-height: 30px; -fx-max-height: 30px;" text="Button">
             <effect>
                 <DropShadow />
             </effect>
@@ -93,7 +87,8 @@
       </ImageView>
       <Rectangle fx:id="Win_dim" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="847.0" layoutX="-7.0" layoutY="-8.0" stroke="BLACK" strokeType="INSIDE" width="586.0" />
         <Button fx:id="dice" layoutX="248.0" layoutY="718.0" mnemonicParsing="false" onMouseClicked="#playDice" prefHeight="74.0" prefWidth="72.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" textFill="BLACK" />
-      <ImageView fx:id="arrow" fitHeight="54.0" fitWidth="47.0" layoutX="261.0" layoutY="669.0"/>
-      <ImageView fx:id="win_display" fitHeight="525.0" fitWidth="937.0" layoutX="-195.0" layoutY="154.0" />
+      <ImageView fx:id="arrow" fitHeight="54.0" fitWidth="47.0" layoutX="261.0" layoutY="669.0" />
+      <ImageView fx:id="win_display" fitHeight="525.0" fitWidth="937.0" layoutX="-192.0" layoutY="154.0"/>
+      <Button fx:id="replay" onMouseClicked="#replay_game" layoutX="229.0" layoutY="542.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="108.0" style="-fx-background-color: TRANSPARENT;"/>
     </children>
 </Pane>

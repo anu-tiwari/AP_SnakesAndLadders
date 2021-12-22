@@ -56,6 +56,15 @@ public class HelloController {
     public Rectangle Win_dim;
 
     @FXML
+    public Button low_token1;
+
+    @FXML
+    public Button low_token2;
+
+    @FXML
+    public Button replay;
+
+    @FXML
     private ResourceBundle resources;
 
     @FXML
@@ -129,7 +138,31 @@ public class HelloController {
         i=0;
         initialise_cells();
         initialise_s_l();
-        game = new Game(dice, token1, token2, P1_start, P2_start, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname, P1_start, P2_start, arrow, win_display, Win_dim);
+        Image img1 = new Image(String.valueOf(HelloApplication.class.getResource("/images/blue.png")));
+        ImageView view1 = new ImageView(img1);
+        view1.setFitHeight(30);
+        view1.setFitWidth(30);
+        view1.setPreserveRatio(true);
+        Image img2 = new Image(String.valueOf(HelloApplication.class.getResource("/images/green.png")));
+        ImageView view2 = new ImageView(img2);
+        view2.setFitHeight(30);
+        view2.setFitWidth(30);
+        view2.setPreserveRatio(true);
+        Image img3 = new Image(String.valueOf(HelloApplication.class.getResource("/images/blue.png")));
+        ImageView view3 = new ImageView(img3);
+        view3.setFitHeight(30);
+        view3.setFitWidth(30);
+        view3.setPreserveRatio(true);
+        token1.setGraphic(view1);
+        token2.setGraphic(view2);
+        Image img4 = new Image(String.valueOf(HelloApplication.class.getResource("/images/green.png")));
+        ImageView view4 = new ImageView(img4);
+        view4.setFitHeight(30);
+        view4.setFitWidth(30);
+        view4.setPreserveRatio(true);
+        low_token1.setGraphic(view3);
+        low_token2.setGraphic(view4);
+        game = new Game(replay, dice, token1, token2, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname, P1_start, P2_start, arrow, win_display, Win_dim);
         x = 0;
         y = 0;
         Bounds bis = token1.localToScene(token1.getBoundsInLocal());
@@ -258,73 +291,9 @@ public class HelloController {
     public static HashMap<Cell, Snake_Ladder> getSandL() {
         return SandL;
     }
-}
 
-//class rotor{
-//    Button bb;
-//    int state;
-//    rotor(Button bb){
-//        this.bb=bb;
-//        this.state=0;
-//    }
-//    void rotate(){bb.setRotate(bb.getRotate()+30);}
-//    void stop_rotation(){ state=0;}
-//    void allow_rotation(){ state=1;}
-//}
-//
-//class rotator{
-//    Button hb;
-//    rotator(Button hb){
-//        this.hb=hb;
-//    }
-//    public void keep_rotating(rotor rtr, display dsp){
-//        while(true){
-//            if (rtr.state==1){//The idea is to allow rotor rotation as long as the rotor state is 1.
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                Platform.runLater(new Runnable2(rtr,dsp));
-//            }else{break;}
-//        }
-//    }
-//}
-//
-//class display{
-//    Label wt;
-//    display(Label wt,String s){
-//        this.wt=wt;
-//        wt.setText(s);
-//    }
-//    void display_current(String s){wt.setText(s);}
-//}
-//
-//class myth extends Thread{
-//    rotator rtt;
-//    rotor rtr;
-//    display dsp;
-//    myth(rotator rtt, rotor rtr, display dsp){
-//        this.rtr=rtr;
-//        this.rtt=rtt;
-//        this.dsp=dsp;
-//    }
-//    @Override
-//    public void run(){
-//        rtt.keep_rotating(rtr,dsp);
-//    }
-//}
-//
-//class Runnable2 implements Runnable{
-//    rotor rtr;
-//    display dsp;
-//    Runnable2(rotor rtr, display dsp){
-//        this.rtr=rtr;
-//        this.dsp=dsp;
-//    }
-//    @Override
-//    public void run() {
-//        rtr.rotate();
-//        dsp.display_current("Rotated "+rtr.bb.getRotate()+" degrees so far.");
-//    }
-//}
+    public void replay_game(MouseEvent mouseEvent)
+    {
+        game.replay_game();
+    }
+}

@@ -14,10 +14,10 @@ public class Player
     Rectangle BG;
     Label display;
 
-    Player(String n, Cell start, Button bt, Rectangle l, Rectangle t, Rectangle b, Rectangle bg, Label dis, Cell og)
+    Player(String n, Button bt, Rectangle l, Rectangle t, Rectangle b, Rectangle bg, Label dis, Cell og)
     {
         name = n;
-        tok = new Token(start, bt, og);
+        tok = new Token(bt, og);
         label = l;
         label_top = t;
         label_bottom = b;

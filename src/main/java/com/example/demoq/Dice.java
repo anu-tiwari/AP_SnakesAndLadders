@@ -154,4 +154,9 @@ public class Dice
 
         return num;
     }
+
+    public void reset()
+    {
+        dice_img.setImage(six);
+    }
 }

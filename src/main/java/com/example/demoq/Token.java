@@ -13,11 +13,11 @@ public class Token
     Cell des;
     ArrayList<Cell> cells;
 
-    Token(Cell start, Button b, Cell org)
+    Token(Button b, Cell org)
     {
-        pos = start;
         bt = b;
         og = org;
+        pos = og;
         cells = HelloController.getCells();
     }
 
@@ -126,5 +126,12 @@ public class Token
         {
             Game.win(this);
         }
+    }
+
+    public void reset()
+    {
+        bt.setTranslateX(0.0);
+        bt.setTranslateY(0.0);
+        pos = og;
     }
 }
