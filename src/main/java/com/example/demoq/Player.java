@@ -2,6 +2,7 @@ package com.example.demoq;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
 public class Player
@@ -11,10 +12,11 @@ public class Player
     Rectangle label;
     Rectangle label_top;
     Rectangle label_bottom;
-    Rectangle BG;
+    ImageView BG;
     Label display;
+    Button indicator;
 
-    Player(String n, Button bt, Rectangle l, Rectangle t, Rectangle b, Rectangle bg, Label dis, Cell og)
+    Player(String n, Button bt, Rectangle l, Rectangle t, Rectangle b, ImageView bg, Label dis, Cell og, Button i)
     {
         name = n;
         tok = new Token(bt, og);
@@ -23,12 +25,17 @@ public class Player
         label_bottom = b;
         BG = bg;
         display = dis;
+        indicator = i;
     }
 
     public String getName() {
         return name;
     }
 
+    public Button getIndicator()
+    {
+        return indicator;
+    }
     public int travel(int num)
     {
         //tok.move(num);
@@ -81,7 +88,7 @@ public class Player
         return label_bottom;
     }
 
-    public Rectangle getBG()
+    public ImageView getBG()
     {
         return BG;
     }

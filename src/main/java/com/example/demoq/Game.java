@@ -29,12 +29,18 @@ public class Game
     static TranslateTransition translate;
     static Image arr;
     static Button replay;
+    static Image light;
+    static Image dark;
+    static ImageView db;
+    static ImageView dg;
+    static ImageView lg;
+    static ImageView lb;
     //static Arrow_Mov arrow_anim;
 
-    Game(Button rep, Button d, Button p1, Button p2, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, Rectangle p1_bg, Rectangle p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a, ImageView win, Rectangle win_dimming)
+    Game(Button indi1, Button indi2, Button rep, Button d, Button p1, Button p2, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, ImageView p1_bg, ImageView p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a, ImageView win, Rectangle win_dimming)
     {
-        P1 = new Player("P1",  p1, p1_label, p1_top, p1_bottom, p1_bg, p1_display, og1);
-        P2 = new Player("P2", p2, p2_label, p2_top, p2_bottom, p2_bg, p2_display, og2);
+        P1 = new Player("P1",  p1, p1_label, p1_top, p1_bottom, p1_bg, p1_display, og1, indi1);
+        P2 = new Player("P2", p2, p2_label, p2_top, p2_bottom, p2_bg, p2_display, og2, indi2);
         next_chance = 1;
         dice_button = d;
         dice_img = dice_image;
@@ -50,9 +56,31 @@ public class Game
         //arrow_anim = new Arrow_Mov(arrow);
         translate = new TranslateTransition();
         arr = new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png")));
-        prompt(this);
         replay = rep;
         replay.setDisable(true);
+        light = new Image(String.valueOf(HelloApplication.class.getResource("/images/light.png")));
+        dark = new Image(String.valueOf(HelloApplication.class.getResource("/images/dark.png")));
+        Image img1 = new Image(String.valueOf(HelloApplication.class.getResource("/images/blue.png")));
+        lb = new ImageView(img1);
+        lb.setFitHeight(40);
+        lb.setFitWidth(40);
+        lb.setPreserveRatio(true);
+        Image img2 = new Image(String.valueOf(HelloApplication.class.getResource("/images/blue_dark.png")));
+        db = new ImageView(img2);
+        db.setFitHeight(40);
+        db.setFitWidth(40);
+        db.setPreserveRatio(true);
+        Image img3 = new Image(String.valueOf(HelloApplication.class.getResource("/images/green.png")));
+        lg = new ImageView(img3);
+        lg.setFitHeight(40);
+        lg.setFitWidth(40);
+        lg.setPreserveRatio(true);
+        Image img4 = new Image(String.valueOf(HelloApplication.class.getResource("/images/green_dark.png")));
+        dg = new ImageView(img4);
+        dg.setFitHeight(40);
+        dg.setFitWidth(40);
+        dg.setPreserveRatio(true);
+        prompt(this);
     }
 
     public static void prompt(Object o)
@@ -85,8 +113,11 @@ public class Game
         p.getLabel().setFill(Color.web("#22205e"));
         p.getLabel_top().setFill(Color.web("#0c467c"));
         p.getLabel_bottom().setFill(Color.web("#42276b"));
-        p.getBG().setFill(Color.web("#0f477c"));
-        p.getBG().setStroke(Color.web("#615d07"));
+        p.getBG().setImage(dark);
+        if (p.getName().equals("P1"))
+            p.getIndicator().setGraphic(db);
+        else
+            p.getIndicator().setGraphic(dg);
         p.getDisplay().setTextFill(Color.web("#808080"));
     }
 
@@ -97,16 +128,16 @@ public class Game
         P1.getLabel().setFill(Color.web("#443ebc"));
         P1.getLabel_top().setFill(Color.DODGERBLUE);
         P1.getLabel_bottom().setFill(Color.web("#844ed3"));
-        P1.getBG().setFill(Color.DODGERBLUE);
-        P1.getBG().setStroke(Color.web("#e4da19"));
+        P1.getBG().setImage(light);
+        P1.getIndicator().setGraphic(lb);
         P1.getDisplay().setTextFill(Color.WHITE);
         //P1.getTok().getBt().setBackground(new BackgroundFill(Color.web("")));
 
         P2.getLabel().setFill(Color.web("#443ebc"));
         P2.getLabel_top().setFill(Color.DODGERBLUE);
         P2.getLabel_bottom().setFill(Color.web("#844ed3"));
-        P2.getBG().setFill(Color.DODGERBLUE);
-        P2.getBG().setStroke(Color.web("#e4da19"));
+        P2.getBG().setImage(light);
+        P2.getIndicator().setGraphic(lg);
         P2.getDisplay().setTextFill(Color.WHITE);
         //P2.getTok().getBt().setBackground(new BackgroundFill(Color.web("#11a118")));
     }

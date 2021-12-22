@@ -35,10 +35,10 @@ public class HelloController {
     public Rectangle p2_bottom;
 
     @FXML
-    public Rectangle p2_bg;
+    public ImageView p2_bg;
 
     @FXML
-    public Rectangle p1_bg;
+    public ImageView p1_bg;
 
     @FXML
     public Label P1_disname;
@@ -140,29 +140,29 @@ public class HelloController {
         initialise_s_l();
         Image img1 = new Image(String.valueOf(HelloApplication.class.getResource("/images/blue.png")));
         ImageView view1 = new ImageView(img1);
-        view1.setFitHeight(30);
-        view1.setFitWidth(30);
+        view1.setFitHeight(40);
+        view1.setFitWidth(40);
         view1.setPreserveRatio(true);
         Image img2 = new Image(String.valueOf(HelloApplication.class.getResource("/images/green.png")));
         ImageView view2 = new ImageView(img2);
-        view2.setFitHeight(30);
-        view2.setFitWidth(30);
+        view2.setFitHeight(40);
+        view2.setFitWidth(40);
         view2.setPreserveRatio(true);
         Image img3 = new Image(String.valueOf(HelloApplication.class.getResource("/images/blue.png")));
         ImageView view3 = new ImageView(img3);
-        view3.setFitHeight(30);
-        view3.setFitWidth(30);
+        view3.setFitHeight(40);
+        view3.setFitWidth(40);
         view3.setPreserveRatio(true);
         token1.setGraphic(view1);
         token2.setGraphic(view2);
         Image img4 = new Image(String.valueOf(HelloApplication.class.getResource("/images/green.png")));
         ImageView view4 = new ImageView(img4);
-        view4.setFitHeight(30);
-        view4.setFitWidth(30);
+        view4.setFitHeight(40);
+        view4.setFitWidth(40);
         view4.setPreserveRatio(true);
         low_token1.setGraphic(view3);
         low_token2.setGraphic(view4);
-        game = new Game(replay, dice, token1, token2, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname, P1_start, P2_start, arrow, win_display, Win_dim);
+        game = new Game(low_token1, low_token2, replay, dice, token1, token2, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname, P1_start, P2_start, arrow, win_display, Win_dim);
         x = 0;
         y = 0;
         Bounds bis = token1.localToScene(token1.getBoundsInLocal());
@@ -219,32 +219,32 @@ public class HelloController {
 
     public void initialise_cells()
     {
-        P1_start = new Cell(-1, 54.0, 696.0);
-        P2_start = new Cell(-2, 80.0, 696.0);
+        P1_start = new Cell(-1, 51.0, 691.0);
+        P2_start = new Cell(-2, 77.0, 691.0);
 
         ArrayList<Double> X = new ArrayList<>();
-        X.add(68.0);
-        X.add(115.0);
-        X.add(160.0);
-        X.add(207.0);
-        X.add(251.0);
-        X.add(296.0);
-        X.add(342.0);
-        X.add(388.0);
-        X.add(433.0);
-        X.add(478.0);
+        X.add(62.0);
+        X.add(108.0);
+        X.add(153.0);
+        X.add(200.0);
+        X.add(244.0);
+        X.add(289.0);
+        X.add(335.0);
+        X.add(381.0);
+        X.add(426.0);
+        X.add(471.0);
 
         ArrayList<Double> Y = new ArrayList<>();
-        Y.add(638.0);
-        Y.add(573.0);
-        Y.add(509.0);
-        Y.add(442.0);
-        Y.add(378.0);
-        Y.add(313.0);
-        Y.add(246.0);
-        Y.add(182.0);
-        Y.add(115.0);
-        Y.add(52.0);
+        Y.add(630.0);
+        Y.add(565.0);
+        Y.add(501.0);
+        Y.add(434.0);
+        Y.add(370.0);
+        Y.add(305.0);
+        Y.add(238.0);
+        Y.add(174.0);
+        Y.add(107.0);
+        Y.add(44.0);
 
         cells = new ArrayList<>();
         int Xcoor, Ycoor;
