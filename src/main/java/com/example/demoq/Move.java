@@ -2,8 +2,8 @@ package com.example.demoq;
 
 public class Move extends Thread
 {
-    Token tok;
-    int dice_value;
+    private Token tok;
+    private int dice_value;
 
     Move(Token t, int dice)
     {
@@ -14,6 +14,6 @@ public class Move extends Thread
     @Override
     public void run()
     {
-        tok.move(dice_value);
+        tok.move();
     }
 }

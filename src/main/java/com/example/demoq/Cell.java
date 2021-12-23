@@ -2,11 +2,11 @@ package com.example.demoq;
 
 public class Cell
 {
-    int value;
-    double X;
-    double Y;
-    boolean SnakeMouth;
-    boolean LadderLow;
+    private final int value;
+    private final double X;
+    private final double Y;
+    private boolean SnakeMouth;
+    private boolean LadderLow;
 
     Cell(int v, double x, double y)
     {

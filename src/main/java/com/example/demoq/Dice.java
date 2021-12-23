@@ -7,14 +7,14 @@ import java.util.Random;
 
 public class Dice
 {
-    ImageView dice_img;
-    Image one;
-    Image two;
-    Image three;
-    Image four;
-    Image five;
-    Image six;
-    Random rnd;
+    private ImageView dice_img;
+    private final Image one;
+    private final Image two;
+    private final Image three;
+    private final Image four;
+    private final Image five;
+    private final Image six;
+    private final Random rnd;
 
     Dice(ImageView imgView)
     {

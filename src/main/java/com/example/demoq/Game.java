@@ -20,27 +20,27 @@ import java.io.InputStream;
 
 public class Game
 {
-    static Player P1;
-    static Player P2;
-    boolean P1_isStart;
-    boolean P2_isStart;
-    static int next_chance;    //1 for P1 2 for P2
-    static Button dice_button;
-    ImageView dice_img;
-    Dice dice;
-    static ImageView arrow;
-    static ImageView win_img;
-    static Rectangle win_dim;
+    private static Player P1;
+    private static Player P2;
+    private boolean P1_isStart;
+    private boolean P2_isStart;
+    private static int next_chance;    //1 for P1 2 for P2
+    private static Button dice_button;
+    private ImageView dice_img;
+    private Dice dice;
+    private static ImageView arrow;
+    private static ImageView win_img;
+    private static Rectangle win_dim;
     //static TranslateTransition translate;
-    static PathTransition pathTransition;
-    static Image arr;
-    static Button replay;
-    static Image light;
-    static Image dark;
-    static ImageView db;
-    static ImageView dg;
-    static ImageView lg;
-    static ImageView lb;
+    private static PathTransition pathTransition;
+//    private static Image arr;
+    private static Button replay;
+    private static Image light;
+    private static Image dark;
+    private static ImageView db;
+    private static ImageView dg;
+    private static ImageView lg;
+    private static ImageView lb;
     //static Arrow_Mov arrow_anim;
 
     Game(Button indi1, Button indi2, Button rep, Button d, Button p1, Button p2, ImageView dice_image, Rectangle p1_label, Rectangle p2_label, Rectangle p1_top, Rectangle p2_top, Rectangle p1_bottom, Rectangle p2_bottom, ImageView p1_bg, ImageView p2_bg, Label p1_display, Label p2_display, Cell og1, Cell og2, ImageView a, ImageView win, Rectangle win_dimming)
@@ -61,7 +61,7 @@ public class Game
         arrow.setCache(false);
         //arrow_anim = new Arrow_Mov(arrow);
         //translate = new TranslateTransition();
-        arr = new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png")));
+        //arr = new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png")));
         replay = rep;
         replay.setDisable(true);
         light = new Image(String.valueOf(HelloApplication.class.getResource("/images/light.png")));
@@ -171,14 +171,14 @@ public class Game
                 P1.start();
                 P1_isStart = true;
                 reset_prompt(this);
-                setNext_chance(this);
+                setNext_chance();
                 prompt(this);
             }
             else if (P1_isStart) {
                 if(P1.travel(num-1)==1)
                 {
                     Game.reset_prompt(this);
-                    Game.setNext_chance(this);
+                    Game.setNext_chance();
                     Game.prompt(this);
                 }
                 //next_chance = 2;
@@ -186,7 +186,7 @@ public class Game
             else
             {
                 reset_prompt(this);
-                setNext_chance(this);
+                setNext_chance();
                 prompt(this);
             }
         }
@@ -196,14 +196,14 @@ public class Game
                 P2.start();
                 P2_isStart = true;
                 reset_prompt(this);
-                setNext_chance(this);
+                setNext_chance();
                 prompt(this);
             }
             else if (P2_isStart) {
                 if(P2.travel(num - 1)==1)
                 {
                     Game.reset_prompt(this);
-                    Game.setNext_chance(this);
+                    Game.setNext_chance();
                     Game.prompt(this);
                 }
                 //next_chance = 1;
@@ -211,7 +211,7 @@ public class Game
             else
             {
                 reset_prompt(this);
-                setNext_chance(this);
+                setNext_chance();
                 prompt(this);
             }
         }
@@ -263,7 +263,7 @@ public class Game
         arrow.setImage(new Image(String.valueOf(HelloApplication.class.getResource("/images/arrow.png"))));
     }
 
-    public static void setNext_chance(Object o)
+    public static void setNext_chance()
     {
 //        if (o instanceof Game || o instanceof Token) {
         if (next_chance == 1)

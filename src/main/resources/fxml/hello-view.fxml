@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#findloc" prefHeight="832.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoq.HelloController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="832.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoq.HelloController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="833.0" layoutX="284.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="288.0">
             <fill>
@@ -54,8 +54,7 @@
                 <Image url="@../images/board_pic.jpeg" />
             </image>
         </ImageView>
-        <Label fx:id="locval" layoutX="265.0" layoutY="800.0" text="Qwerty" />
-        <Button fx:id="token1" layoutX="51.0" layoutY="691.0" mnemonicParsing="false" onMouseClicked="#move" style="-fx-background-color: TRANSPARENT; -fx-background-radius: 5em; -fx-min-width: 40px; -fx-max-width: 40px; -fx-min-height: 40px; -fx-max-height: 40px;" />
+        <Button fx:id="token1" layoutX="51.0" layoutY="691.0" mnemonicParsing="false" style="-fx-background-color: TRANSPARENT; -fx-background-radius: 5em; -fx-min-width: 40px; -fx-max-width: 40px; -fx-min-height: 40px; -fx-max-height: 40px;" />
         <Button fx:id="token2" layoutX="77.0" layoutY="691.0" mnemonicParsing="false" style="-fx-background-color: TRANSPARENT; -fx-background-radius: 5em; -fx-min-width: 40px; -fx-max-width: 40px; -fx-min-height: 40px; -fx-max-height: 40px;" />
         <Rectangle fx:id="p1_label" arcHeight="5.0" arcWidth="5.0" fill="#443ebc" height="50.0" layoutX="155.0" layoutY="731.0" stroke="WHITE" strokeType="INSIDE" width="108.0" />
         <Rectangle fx:id="p2_label" arcHeight="5.0" arcWidth="5.0" fill="#443ebc" height="50.0" layoutX="310.0" layoutY="731.0" stroke="WHITE" strokeType="INSIDE" width="107.0" />
@@ -77,7 +76,6 @@
       </ImageView>
         <Button fx:id="low_token1" layoutX="122.0" layoutY="735.0" mnemonicParsing="false" style="-fx-background-color: TRANSPARENT; -fx-background-radius: 5em; -fx-min-width: 40px; -fx-max-width: 40px; -fx-min-height: 40px; -fx-max-height: 40px;" text="Button"/>
         <Button fx:id="low_token2" layoutX="408.0" layoutY="735.0" mnemonicParsing="false" style="-fx-background-color: TRANSPARENT; -fx-background-radius: 5em; -fx-min-width: 40px; -fx-max-width: 40px; -fx-min-height: 40px; -fx-max-height: 40px;" text="Button"/>
-        <Label fx:id="diceval" layoutX="357.0" layoutY="800.0" text="Dice" />
       <ImageView fx:id="dice_img" fitHeight="74.0" fitWidth="74.0" layoutX="247.0" layoutY="719.0">
          <image>
             <Image url="@../images/six_dice.png" />

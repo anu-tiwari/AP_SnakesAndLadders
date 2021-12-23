@@ -14,12 +14,11 @@ import java.util.ArrayList;
 
 public class Token
 {
-    Cell pos;
-    Button bt;
-    Cell og;
-    Cell des;
-    ArrayList<Cell> cells;
-    boolean encounter;
+    private Cell pos;
+    private Button bt;
+    private Cell og;
+    private Cell des;
+    private ArrayList<Cell> cells;
 
     Token(Button b, Cell org)
     {
@@ -27,7 +26,6 @@ public class Token
         og = org;
         pos = og;
         cells = HelloController.getCells();
-        encounter = false;
     }
 
     public Button getBt() {
@@ -66,7 +64,7 @@ public class Token
 //        pos = cells.get(new_val-1);
 //    }
 
-    public void move(int dice_value)
+    public void move()
     {
         if (des.getValue()>100)
             return;
@@ -127,7 +125,7 @@ public class Token
 //            Game.prompt(this);
 //        }
         pos = des;
-        System.out.println("pos just assigned as "+pos.getValue());
+        //System.out.println("pos just assigned as "+pos.getValue());
 
 //        if (pos.isSnakeMouth() || pos.isLadderLow())
 //            HelloController.getSandL().get(pos).move(this);
@@ -138,7 +136,7 @@ public class Token
         bt.setTranslateX(cells.get(0).getX() - og.getX());
         bt.setTranslateY(cells.get(0).getY() - og.getY());
         pos = cells.get(0);
-        System.out.println("started at pos "+pos.getValue());
+        //System.out.println("started at pos "+pos.getValue());
     }
 
     public Cell getDes() {
@@ -155,7 +153,7 @@ public class Token
         if (pos.getValue()==des.getValue()) {
             Game.unfreeze_dice();
             Game.reset_prompt(this);
-            Game.setNext_chance(this);
+            Game.setNext_chance();
             Game.prompt(this);
             return;
         }
@@ -167,11 +165,11 @@ public class Token
         bt.setTranslateX(cells.get(getPos().getValue()).getX() - og.getX());
         bt.setTranslateY(cells.get(getPos().getValue()).getY() - og.getY());
         pos = cells.get(getPos().getValue());
-        System.out.println("in one step new pos is "+pos.getValue());
-        System.out.println("in one step des is "+des.getValue());
+//        System.out.println("in one step new pos is "+pos.getValue());
+//        System.out.println("in one step des is "+des.getValue());
         if (pos.getValue()==des.getValue()) {
             if (pos.isSnakeMouth() || pos.isLadderLow()) {
-                System.out.println("fetching snake or ladder");
+                //System.out.println("fetching snake or ladder");
                 //setDes(HelloController.getSandL().get(pos).getDeliver());
                 HelloController.getSandL().get(pos).move(this);
             }

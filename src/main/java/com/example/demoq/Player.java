@@ -7,14 +7,14 @@ import javafx.scene.shape.Rectangle;
 
 public class Player
 {
-    String name;
-    Token tok;
-    Rectangle label;
-    Rectangle label_top;
-    Rectangle label_bottom;
-    ImageView BG;
-    Label display;
-    Button indicator;
+    private final String name;
+    private final Token tok;
+    private final Rectangle label;
+    private final Rectangle label_top;
+    private final Rectangle label_bottom;
+    private final ImageView BG;
+    private final Label display;
+    private final Button indicator;
 
     Player(String n, Button bt, Rectangle l, Rectangle t, Rectangle b, ImageView bg, Label dis, Cell og, Button i)
     {
@@ -54,11 +54,11 @@ public class Player
             }
             tok.setDes(HelloController.getCells().get(tok.getPos().getValue() + num));
         }
-        System.out.println("des set is "+tok.getDes().getValue());
+        //System.out.println("des set is "+tok.getDes().getValue());
         Game.freeze_dice();
         Move m = new Move(tok, num);
         m.start();
-        System.out.println("pos of " + this.name +" is "+tok.getPos().value);
+        //System.out.println("pos of " + this.name +" is "+tok.getPos().getValue());
         return 0;
 //        try {
 //            m.join();

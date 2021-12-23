@@ -65,12 +65,6 @@ public class HelloController {
     public Button replay;
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     public ImageView board;
 
     @FXML
@@ -82,8 +76,8 @@ public class HelloController {
     @FXML
     public ImageView dice_img;
 
-    @FXML
-    public Label diceval;
+//    @FXML
+//    public Label diceval;
 
     @FXML
     private Button token1;
@@ -91,8 +85,8 @@ public class HelloController {
 //    @FXML
 //    private ImageView img;
 
-    @FXML
-    private Label locval;
+//    @FXML
+//    private Label locval;
 
     private Game game;
 
@@ -101,31 +95,31 @@ public class HelloController {
 
     private Cell P1_start;
     private Cell P2_start;
+//
+//    double x;
+//    double y;
+//    double curr_x;
+//    double curr_y;
+//
+//    int i;
 
-    double x;
-    double y;
-    double curr_x;
-    double curr_y;
+//    @FXML
+//    void move(MouseEvent event)
+//    {
+//        token1.setTranslateX(x-curr_x);
+//        token1.setTranslateY(y-curr_y);
+////        curr_x = x;
+////        curr_y = y;
+//    }
 
-    int i;
-
-    @FXML
-    void move(MouseEvent event)
-    {
-        token1.setTranslateX(x-curr_x);
-        token1.setTranslateY(y-curr_y);
-//        curr_x = x;
-//        curr_y = y;
-    }
-
-    @FXML
-    void findloc(MouseEvent event)
-    {
-        locval.setText("Move to X:"+ event.getSceneX() +"Y:"+ event.getSceneY());
-        x = event.getSceneX();
-        y = event.getSceneY();
-        System.out.println("X: "+x+"Y: "+y);
-    }
+//    @FXML
+//    void findloc(MouseEvent event)
+//    {
+//        locval.setText("Move to X:"+ event.getSceneX() +"Y:"+ event.getSceneY());
+//        x = event.getSceneX();
+//        y = event.getSceneY();
+//        System.out.println("X: "+x+"Y: "+y);
+//    }
 
     @FXML
     void initialize() {
@@ -135,7 +129,7 @@ public class HelloController {
 //        System.out.println(getClass().getResource("images/one_dice.jpg"));
 //        dice_img.setImage(img);
         //<ImageView fx:id="dice_img" fitHeight="85.0" fitWidth="81.0" layoutX="243.0" layoutY="713.0" preserveRatio="true" style="-fx-background-radius: 5px" />
-        i=0;
+        //i=0;
         initialise_cells();
         initialise_s_l();
         Image img1 = new Image(String.valueOf(HelloApplication.class.getResource("/images/blue.png")));
@@ -163,11 +157,11 @@ public class HelloController {
         low_token1.setGraphic(view3);
         low_token2.setGraphic(view4);
         game = new Game(low_token1, low_token2, replay, dice, token1, token2, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname, P1_start, P2_start, arrow, win_display, Win_dim);
-        x = 0;
-        y = 0;
-        Bounds bis = token1.localToScene(token1.getBoundsInLocal());
-        curr_x = bis.getMinX();
-        curr_y = bis.getMinY();
+//        x = 0;
+//        y = 0;
+//        Bounds bis = token1.localToScene(token1.getBoundsInLocal());
+//        curr_x = bis.getMinX();
+//        curr_y = bis.getMinY();
     }
 
     public void initialise_s_l()
@@ -279,9 +273,9 @@ public class HelloController {
     }
 
     public void playDice(MouseEvent mouseEvent) {
-        i++;
+        //i++;
         game.rollDice();
-        diceval.setText("Dice clicked"+i+"times");
+        //diceval.setText("Dice clicked"+i+"times");
     }
 
     public static ArrayList<Cell> getCells() {
