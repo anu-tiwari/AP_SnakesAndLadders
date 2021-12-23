@@ -19,6 +19,4 @@ abstract public class Snake_Ladder
     }
 
     abstract public void move(Token tok);
-
-    //abstract public void deliver(Token tok);
 }

@@ -38,8 +38,6 @@ public class Player
     }
     public int travel(int num)
     {
-        //tok.move(num);
-        //des = cells.get();
         if (num==0) {
             if (tok.getPos().getValue()>99)
                 return 1;
@@ -47,28 +45,14 @@ public class Player
         }
         else {
             if (tok.getPos().getValue() + num>99) {
-//                Game.reset_prompt(this);
-//                Game.setNext_chance(this);
-//                Game.prompt(this);
                 return 1;
             }
             tok.setDes(HelloController.getCells().get(tok.getPos().getValue() + num));
         }
-        //System.out.println("des set is "+tok.getDes().getValue());
         Game.freeze_dice();
         Move m = new Move(tok, num);
         m.start();
-        //System.out.println("pos of " + this.name +" is "+tok.getPos().getValue());
         return 0;
-//        try {
-//            m.join();
-//        }
-//        catch (Exception e)
-//        {
-//            e.printStackTrace();
-//        }
-//        if (!m.isAlive())
-        //Game.setNext_chance(getName());
     }
 
     public void start()

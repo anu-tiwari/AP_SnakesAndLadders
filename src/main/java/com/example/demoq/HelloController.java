@@ -3,12 +3,8 @@ package com.example.demoq;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import java.io.File;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.ResourceBundle;
-import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -17,76 +13,67 @@ import javafx.scene.shape.Rectangle;
 public class HelloController {
 
     @FXML
-    public Rectangle p1_label;
+    private Rectangle p1_label;
 
     @FXML
-    public Rectangle p2_label;
+    private Rectangle p2_label;
 
     @FXML
-    public Rectangle p1_top;
+    private Rectangle p1_top;
 
     @FXML
-    public Rectangle p2_top;
+    private Rectangle p2_top;
 
     @FXML
-    public Rectangle p1_bottom;
+    private Rectangle p1_bottom;
 
     @FXML
-    public Rectangle p2_bottom;
+    private Rectangle p2_bottom;
 
     @FXML
-    public ImageView p2_bg;
+    private ImageView p2_bg;
 
     @FXML
-    public ImageView p1_bg;
+    private ImageView p1_bg;
 
     @FXML
-    public Label P1_disname;
+    private Label P1_disname;
 
     @FXML
-    public Label P2_disname;
+    private Label P2_disname;
 
     @FXML
-    public ImageView arrow;
+    private ImageView arrow;
 
     @FXML
-    public ImageView win_display;
+    private ImageView win_display;
 
     @FXML
-    public Rectangle Win_dim;
+    private Rectangle Win_dim;
 
     @FXML
-    public Button low_token1;
+    private Button low_token1;
 
     @FXML
-    public Button low_token2;
+    private Button low_token2;
 
     @FXML
-    public Button replay;
+    private Button replay;
 
     @FXML
-    public ImageView board;
+    private ImageView board;
 
     @FXML
-    public Button token2;
+    private Button token2;
 
     @FXML
-    public Button dice;
+    private Button dice;
 
     @FXML
-    public ImageView dice_img;
-
-//    @FXML
-//    public Label diceval;
+    private ImageView dice_img;
 
     @FXML
     private Button token1;
-
-//    @FXML
-//    private ImageView img;
-
-//    @FXML
-//    private Label locval;
 
     private Game game;
 
@@ -95,41 +82,9 @@ public class HelloController {
 
     private Cell P1_start;
     private Cell P2_start;
-//
-//    double x;
-//    double y;
-//    double curr_x;
-//    double curr_y;
-//
-//    int i;
-
-//    @FXML
-//    void move(MouseEvent event)
-//    {
-//        token1.setTranslateX(x-curr_x);
-//        token1.setTranslateY(y-curr_y);
-////        curr_x = x;
-////        curr_y = y;
-//    }
-
-//    @FXML
-//    void findloc(MouseEvent event)
-//    {
-//        locval.setText("Move to X:"+ event.getSceneX() +"Y:"+ event.getSceneY());
-//        x = event.getSceneX();
-//        y = event.getSceneY();
-//        System.out.println("X: "+x+"Y: "+y);
-//    }
 
     @FXML
     void initialize() {
-        //locval.setText("Hey");
-        //dice_img = new ImageView(new Image(getClass().getResource("one_dice.jpg"), true));
-//        Image img = new Image(new File("images/one_dice.jpg").toURI().toString(), true);
-//        System.out.println(getClass().getResource("images/one_dice.jpg"));
-//        dice_img.setImage(img);
-        //<ImageView fx:id="dice_img" fitHeight="85.0" fitWidth="81.0" layoutX="243.0" layoutY="713.0" preserveRatio="true" style="-fx-background-radius: 5px" />
-        //i=0;
         initialise_cells();
         initialise_s_l();
         Image img1 = new Image(String.valueOf(HelloApplication.class.getResource("/images/blue.png")));
@@ -157,11 +112,6 @@ public class HelloController {
         low_token1.setGraphic(view3);
         low_token2.setGraphic(view4);
         game = new Game(low_token1, low_token2, replay, dice, token1, token2, dice_img, p1_label, p2_label, p1_top, p2_top, p1_bottom, p2_bottom, p1_bg, p2_bg, P1_disname, P2_disname, P1_start, P2_start, arrow, win_display, Win_dim);
-//        x = 0;
-//        y = 0;
-//        Bounds bis = token1.localToScene(token1.getBoundsInLocal());
-//        curr_x = bis.getMinX();
-//        curr_y = bis.getMinY();
     }
 
     public void initialise_s_l()
@@ -245,7 +195,7 @@ public class HelloController {
 
         for (int i = 1; i <= 100; i++)
         {
-            if (i % 10 == 0)                        //Y can directly access arraylist
+            if (i % 10 == 0)
                 Ycoor = (i / 10) - 1;
             else
                 Ycoor = i / 10;
@@ -273,9 +223,7 @@ public class HelloController {
     }
 
     public void playDice(MouseEvent mouseEvent) {
-        //i++;
         game.rollDice();
-        //diceval.setText("Dice clicked"+i+"times");
     }
 
     public static ArrayList<Cell> getCells() {
